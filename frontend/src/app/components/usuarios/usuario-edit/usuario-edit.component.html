@@ -1,0 +1,32 @@
+<br>
+<div class="container-fluid">
+  <div class="container col-xl-6">
+    <div class="card" *ngFor="let item of dados">
+        <div class="card-body">
+          <form action="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="row">
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="">Nome</label>
+                  <input type="text" class="form-control" name="nome" ngModel [(ngModel)]="item.nome">
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input type="text" class="form-control" name="email" ngModel [(ngModel)]="item.email">
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="">Setor</label>
+                  <input type="text" class="form-control" name="setor" ngModel [(ngModel)]="item.setor">
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-success col-xl-3 col-md-3 col-sm-4 mx-auto btn-block" type="submit">SALVAR</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<br>
+<div class="container-fluid">
+  <button class="btn btn-success" (click)="reload()">Refresh</button>
+  <br>
+  <br>
+  <br>
+  <div class="table-responsive">
+    <table class="table-hover table-striped table">
+      <thead class="bg-primary text-white">
+        <tr>
+          <td>Serial</td>
+          <td>SN</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listonu">
+          <td>{{item.sn}}</td>
+          <td>{{item.onu}}</td>
+          <td class="text-right">
+            <a routerLink="/unconfigured/config/{{item.id}}/{{item.sn}}">Provisionar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

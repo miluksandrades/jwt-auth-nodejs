@@ -1,0 +1,39 @@
+<!-- <div class="container ">
+  <div class="card col-xl-4 col-lg-5 col-md-5 col-sm-12 mx-auto">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" #email="ngModel" required name="email" id="email" [(ngModel)]="usuario.email"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="pass">Senha</label>
+          <input type="password" #pass="ngModel" required name="pass" id="pass" [(ngModel)]="usuario.pass"
+            class="form-control">
+        </div>
+        <button [disabled]="email.invalid || pass.invalid" class="btn btn-primary btn-block"
+          (click)="login()">ENTRAR</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div class="text-center">
+  <form class="form-signin">
+    <br>
+    <h1 class="h1">TOPPOLT</h1>
+    <br>
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" #email="ngModel" name="email" id="email" [(ngModel)]="usuario.email" class="form-control"
+      placeholder="Email" required="" autofocus="" autocomplete="off">
+
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="password" #pass="ngModel" name="pass" id="pass" [(ngModel)]="usuario.pass" class="form-control"
+      placeholder="Senha" required="">
+
+    <button [disabled]="email.invalid || pass.invalid" class="btn btn-primary btn-block"
+      (click)="login()">ENTRAR</button>
+  </form>
+</div>

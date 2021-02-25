@@ -1,0 +1,103 @@
+<br>
+<div class="container">
+  <button type="button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fas fa-plus"></i> Add User
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuário</h5>
+          <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i
+              class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="row">
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" class="form-control" name="nome" [(ngModel)]="userForm.nome">
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" [(ngModel)]="userForm.email">
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="pass">Senha</label>
+                  <input type="password" class="form-control" name="pass" [(ngModel)]="userForm.pass" #password="ngModel"
+                    >
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="cpass">Confirmar Senha</label>
+                  <input type="password" class="form-control" name="cpass" [(ngModel)]="userForm.cpass"
+                    #confirmpassword="ngModel" pattern="{{ password.value }}">
+                  <div *ngIf="confirmpassword.invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="confirmpassword.errors.required"> Campo Obrigatório. </div>
+                    <div *ngIf="confirmpassword.errors.pattern"> Senhas não conferem.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="setor">Setor</label>
+                  <select name="setor" [(ngModel)]="userForm.setor" id="setor" class="form-control" required>
+                    <option value="">Selecione...</option>
+                    <option value="NOC">NOC</option>
+                    <option value="TECNICO">TECNICO</option>
+                    <option value="SAC">SAC</option>
+                    <optgroup>
+                      <option value="Admin">Admin</option>
+                      <option value="Super Admin">Super Admin</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="createUser()">Salvar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive mb-3">
+    <table class="table table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nome</th>
+          <th>Usuario</th>
+          <th>Setor</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of usuarios">
+          <td>{{item.nome}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.setor}}</td>
+          <td class="text-right">
+            <a routerLink="/usuario/{{item.id}}"><button class="btn btn-outline-success btn-sm"><i
+                  class="fas fa-eye"></i></button></a>
+            &nbsp;&nbsp;
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteUser(item.id)"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
